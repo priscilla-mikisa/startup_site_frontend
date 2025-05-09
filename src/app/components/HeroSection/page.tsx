@@ -81,7 +81,8 @@ const HeroSection: React.FC = () => {
       boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
     }
   };
-
+ console.log(heroStyles);
+ 
   return (
     <div className="bg-gradient-to-r from-emerald-800 to-emerald-500 text-white py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

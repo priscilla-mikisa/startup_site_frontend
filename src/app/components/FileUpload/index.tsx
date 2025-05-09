@@ -1,5 +1,5 @@
 import { useFileUpload } from '@/app/hooks/useFileUpload';
-import React, { useState, ChangeEvent } from 'react';
+// import React, { useState, ChangeEvent } from 'react';
 
 interface FileUploadProps {
   onFileChange: (file: File | null) => void;

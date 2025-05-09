@@ -10,6 +10,7 @@ export interface FounderFormData {
     description: string;
     funding: string;
     comments: string;
+    [key: string]: string;
   }
   
   export interface FileUploadState {
@@ -26,5 +27,4 @@ export interface FounderFormData {
   export interface ApiResponse {
     success: boolean;
     message: string;
-    data?: any;
   }

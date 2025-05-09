@@ -1,3 +1,4 @@
+'use client'
 import { useForm } from '@/app/hooks/useForm';
 import { submitStartupData } from '@/app/utils/api';
 import { FounderFormData } from '@/app/utils/types';
@@ -93,7 +94,7 @@ const FounderForm: React.FC = () => {
           {submitSuccess && (
             <div className="mb-6 p-4 rounded-md bg-green-50 text-green-800 border border-green-200">
               <p className="font-medium">Success! Your startup information has been submitted.</p>
-              <p className="mt-1">We'll review your information and contact you soon.</p>
+              <p className="mt-1">We`&apos;`ll review your information and contact you soon.</p>
             </div>
           )}
           

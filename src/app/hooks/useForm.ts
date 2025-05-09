@@ -1,4 +1,4 @@
-// src/hooks/useForm.ts
+'use client'
 import { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 
 interface UseFormProps<T> {
@@ -7,7 +7,8 @@ interface UseFormProps<T> {
   onSubmit: (values: T) => void;
 }
 
-export function useForm<T extends Record<string, any>>({
+// Using a more general constraint for T to support various form data types
+export function useForm<T extends Record<string, unknown>>({
   initialValues,
   validate,
   onSubmit

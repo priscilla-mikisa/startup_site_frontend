@@ -1,4 +1,4 @@
-// src/hooks/useFileUpload.ts
+'use client'
 import { useState, ChangeEvent } from 'react';
 import { FileUploadOptions, FileUploadState } from '../utils/types';
 

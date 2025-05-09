@@ -1,39 +1,53 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
+import { NextRequest } from 'next/server';
 
-type Data = {
-  success: boolean;
-  message: string;
-  data?: any;
-}
+// type ResponseData = {
+//   success: boolean;
+//   message: string;
+//   data?: any;
+// }
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) {
-  // Only allow POST method
-  if (req.method !== 'POST') {
-    return res.status(405).json({ success: false, message: 'Method not allowed' });
-  }
-
+export async function POST(request: NextRequest) {
   try {
-    // Get the form data from the request body
-    const formData = req.body;
-
+    // Parse the JSON body
+    const formData = await request.json();
     
-    // For now, we'll just mock a successful response
+    // Log the form submission
     console.log('Received form submission:', formData);
     
-    // Mock successful processing
-    return res.status(200).json({
+    // Return successful response
+    return new Response(JSON.stringify({
       success: true,
       message: 'Startup information submitted successfully!',
       data: { submissionId: 'mock-id-' + Date.now() }
+    }), {
+      status: 200,
+      headers: {
+        'Content-Type': 'application/json'
+      }
     });
   } catch (error) {
     console.error('Error processing submission:', error);
-    return res.status(500).json({
+    return new Response(JSON.stringify({
       success: false,
       message: 'An error occurred while processing your submission.'
+    }), {
+      status: 500,
+      headers: {
+        'Content-Type': 'application/json'
+      }
     });
   }
+}
+
+// You can add this to handle other methods
+export async function GET() {
+  return new Response(JSON.stringify({
+    success: false,
+    message: 'Method not allowed'
+  }), {
+    status: 405,
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
 }
